@@ -1,0 +1,36 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: dotnetcoreapp-dec7-spa
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dotnetcoreapp-dec7-spa
+    spec:
+      containers:
+      - name: dotnetcoreapp-dec7-spa
+        image: bikramdockerregistry.azurecr.io/dotnet-dec7_devops-training:#{Build.BuildId}#
+        ports:
+        - name: codeport
+          containerPort: 80
+
+---
+#kubectl expose deployment helloworld-deployment --type=NodePort
+apiVersion: v1
+kind: Service
+metadata:
+  name: dotnetcoreapp-dec7-spa
+spec:
+  ports:
+  - port: 8888
+    nodePort: 31112
+    targetPort: codeport
+    protocol: TCP
+  selector:
+    app: dotnetcoreapp-dec7-spa
+  type: LoadBalancer
+        
+
+        
