@@ -14,7 +14,7 @@ spec:
         image: bikramdockerregistry.azurecr.io/dotnet-dec7_devops-training:#{Build.BuildId}#
         ports:
         - name: codeport
-          containerPort: 80
+          containerPort: 5000
 
 ---
 #kubectl expose deployment helloworld-deployment --type=NodePort
