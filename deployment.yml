@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: dotnetcoreapp-dec7-spa
-        image: bikramdockerregistry.azurecr.io/dotnet-dec7_devops-training:#{Build.BuildId}#
+        image: bikramdockerregistry.azurecr.io/bikram30051981/dotnet-dec7_devops-training:#{Build.BuildId}#
         ports:
         - name: codeport
           containerPort: 5000
